@@ -1,0 +1,131 @@
+<h1>{{Name}}</h1>
+
+<div class="row">
+    <div class="col-xxxl-7 col-xxl-12 col-md-7">
+        <div>
+            <nb-card size="medium">
+                <nb-card-header>
+                    <h5>About our organization</h5>
+                </nb-card-header>
+                <nb-card-body>
+                    <table class="table">
+                        <tbody class="orginfo">
+                            <tr *ngFor="let org of OrgInfo">
+                                <th scope="row"></th>
+                                <td class="org-title">
+                                    <h7>{{org.title}}</h7>
+                                </td>
+                                <td class="org-data">{{org.data}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </nb-card-body>
+            </nb-card>
+        </div>
+        <div>
+            <ngx-orgpics [puid]="puid"></ngx-orgpics>
+        </div>
+    </div>
+
+    <div class="col-xxxl-5 col-md-5">
+        <nb-card>
+            <nb-card-header>
+                <h5>Vote this Organization</h5>
+            </nb-card-header>
+            <nb-card-body>
+                <div class="vote-class" *ngIf=Wallet>
+                    <div *ngIf="isVoted" style="color: red; font-size: small; margin: 10px;">
+                        <p>*You have already voted</p>
+                    </div>
+                    <button nbButton outline status="success" (click)="upvote()" class="vote"><nb-icon icon="arrow-circle-up"></nb-icon> Up Vote </button>
+                    <button nbButton outline status="danger" (click)="downvote()" class="vote"><nb-icon icon="arrow-circle-down"></nb-icon> Down Vote</button>
+                    <div *ngIf="VoteConfirmation" style="color: green; font-size: small; margin: 10px">
+                        <p>*You have voted successfully</p>
+                    </div>
+                </div>
+                <div *ngIf=!Wallet>
+                    <p>Connect your wallet to vote this organization!</p>
+                </div>
+            </nb-card-body>
+        </nb-card>
+        <nb-card>
+            <div class="row">
+                <div class="col-xxxl-6 col-xxl-12 col-md-7 ">
+                    <div id="fluid-meter" class="fluid"></div>
+                </div>
+                <div class="col-xxxl-6 col-md-5 statistics">
+                    <div class="stat">
+                        <div class="stat">
+                            <div class="card-subheading">Goal</div>
+                            <h4 class="card-heading">{{Goal + " tez"}}</h4>
+                        </div>
+                        <div class="stat">
+                            <div class="card-subheading">Reached</div>
+                            <h4 class="card-heading">{{reached + " tez"}}</h4>
+                        </div>
+                        <div class="stat">
+                            <div class="card-subheading">Locked Funds</div>
+                            <h4 class="card-heading">{{lockedfunds + " tez"}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nb-card>
+        <nb-card>
+            <div class="qrcode">
+                <ngx-qrcode [elementType]="elementType" [value]="data" cssClass="qrcode">
+                </ngx-qrcode>
+            </div>
+            <div class="container">
+                <div class="label">
+                    Account Address
+                </div>
+                <div class="copy-text">
+                    <input type="text" class="text" value={{data}} readonly>
+                    <button (click)="CopyText($event)">
+                              <i class = "fa fa-clone"></i>
+                         </button>
+                </div>
+            </div>
+        </nb-card>
+        <nb-card>
+            <nb-card-body>
+                <div class="donate">
+                    <div>
+                        <input type="number" (change)=checkinp(amount.value) nbInput value={{con}} fullWidth #amount fieldSize="large" placeholder="Amount of money you want to donate">
+                    </div>
+                    <div class="converter">
+                        <nb-select (selectedChange)="change(amount.value,$event)" placeholder="Select Showcase" [(selected)]="curr">
+                            <nb-option value="rupee">Rupee</nb-option>
+                            <nb-option value="dollar">Dollar</nb-option>
+                        </nb-select>
+                        <!-- <p> {{disp}} tez</p> -->
+                        <input type="text" nbInput value={{disp}} #xtz fieldSize="large" placeholder="Amount of money you want to donate" readonly>
+                    </div>
+
+                </div>
+                <div class="donate">
+                    <input type="text" nbInput #comment fullWidth fieldSize="large" placeholder="Your Comments">
+                </div>
+                <br>
+                <div *ngIf="!Wallet">
+                    <p style="color: red;"> Please connect your Wallet to Fund!</p>
+                </div>
+                <div *ngIf="formerr">
+                    <p style="color: red;"> Please give a valid amount!</p>
+                </div>
+                <div class="donate-button">
+                    <button nbButton status="success" (click)="fund(xtz.value, comment.value)">Fund</button>
+                    <button nbButton status="info" (click)="conditional(xtz.value, comment.value)">Conditional Fund</button>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
+
+<!-- <div class = "row">
+     <div class="col-xxxl-7 col-xxl-12 col-md-7">
+     </div>
+     <div class="col-xxxl-5 col-md-5">
+     </div>
+</div> -->

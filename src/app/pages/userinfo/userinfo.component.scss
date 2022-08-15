@@ -1,0 +1,85 @@
+    @import 'src/app/@theme/styles/themes';
+    @include nb-install-component() {
+        nb-card-body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        nb-card-footer {
+            text-align: right;
+        }
+        button[nbTreeGridRowToggle] {
+            background: transparent;
+            border: none;
+            padding: 0;
+        }
+        .search-label {
+            display: block;
+        }
+        .search-input {
+            margin-bottom: 1rem;
+        }
+        .nb-column-name {
+            width: 100%;
+        }
+         ::ng-deep .row-toggle-button {
+            color: nb-theme(text-basic-color);
+        }
+        .nb-tree-grid-header-cell,
+        .nb-tree-grid-header-cell button {
+            text-transform: capitalize;
+        }
+        @media screen and (min-width: 400px) {
+            .nb-column-name,
+            .nb-column-size {
+                width: 50%;
+            }
+        }
+        @media screen and (min-width: 500px) {
+            .nb-column-name,
+            .nb-column-size,
+            .nb-column-kind {
+                width: 33.333%;
+            }
+        }
+        @media screen and (min-width: 600px) {
+            .nb-column-name {
+                width: 31%;
+            }
+            .nb-column-size,
+            .nb-column-kind,
+            .nb-column-items {
+                width: 23%;
+            }
+        }
+        span {
+            padding-left: 16%
+        }
+        .org-data {
+            font-size: 15px;
+        }
+        .org-title {
+            font-weight: bold;
+        }
+        .orginfo {
+            font-size: 18px;
+            color: white;
+        }
+        // .td {
+        //     display: flex;
+        // }
+        // .example-spacer {
+        //     flex-grow: 1;
+        // }
+        // .row {
+        //     text-align: right;
+        // }
+        // .row .option {
+        //     text-align: right;
+        //     align-items: right;
+        // }
+        //     .row .text {
+        //         text-align: left;
+        //         align-items: left;
+        //     }
+    }

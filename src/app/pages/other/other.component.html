@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="jumbotron">
+
+        <h1 class="display-4">Others</h1>
+        <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid nobis cum vel in, expedita nisi quos unde dolorem voluptas recusandae illo amet sequi quo facere dicta voluptate doloremque commodi ratione?</p>
+        <hr class="my-4">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quod doloremque eveniet deleniti quam sapiente, sequi explicabo illo a, molestiae, vel quisquam. Corporis possimus, libero a necessitatibus voluptates sint nobis.</p>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4" *ngFor="let org of orgs">
+            <div class="card text-center">
+                <img class="card-img-top" width="350" height="200" src={{org.pic}} alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{org.name}}</h5>
+                    <p class="goal">Goal : {{org.goal}} tez</p>
+                    <nb-progress-bar [value]="org.progress" status="success" size="medium" [displayValue]="true"></nb-progress-bar>
+                    <p class="card-text">{{org.description}}</p>
+
+                    <button class="button" (click)="vieworg(org.id)" nbButton status="primary">Know More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<ng-container *ngIf=Wallet>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <nb-card class=card>
+                <nb-card-header>Raise a Fund</nb-card-header>
+                <nb-card-body>
+                    <div class="full-name-inputs">
+                        <input type="text" (change)=checkerr(name,description,goal,post_type,institution,imageInput) nbInput #name fullWidth placeholder="Name of the cause*">
+                        <input type="text" nbInput #institution fullWidth placeholder="Name of the Institution (if any)">
+                    </div>
+                    <textarea rows="5" (change)=checkerr(name,description,goal,post_type,institution,imageInput) nbInput #description fullWidth shape="round" placeholder="Description*"></textarea>
+                    <div class="full-name-inputs">
+                        <input type="number" (change)=checkinp(name,description,goal,post_type,institution,imageInput,amount.value) nbInput value={{con}} fullWidth #amount fieldSize="large" placeholder="Amount of money you want to raise">
+                        <nb-select (selectedChange)="change(amount.value,$event)" placeholder="Currency*">
+                            <nb-option value="rupee">Rupees</nb-option>
+                            <nb-option value="dollar">Dollars</nb-option>
+                        </nb-select>
+                        <input type="text" nbInput value={{disp}} #xtz fieldSize="large" placeholder="Convertion to tez" readonly>
+                    </div>
+                    <div class="full-name-inputs">
+                        <nb-select fullWidth (change)=checkerr(name,description,goal,post_type,institution,imageInput) [(ngModel)]="selectedOption" placeholder="Type of the organisation*">
+                            <nb-option value="Education">Education</nb-option>
+                            <nb-option value="Start Ups">Start Ups</nb-option>
+                            <nb-option value="Old Age Homes">Old Age Homes</nb-option>
+                            <nb-option value="Health">Health</nb-option>
+                            <nb-option value="Rural Development">Rural Development</nb-option>
+                            <nb-option value="Nature">Nature</nb-option>
+                            <nb-option value="Farming">Farming</nb-option>
+                            <nb-option value="Others">Others</nb-option>
+                        </nb-select>
+                        <input nbInput #deadline (change)=checkerr(name,description,goal,post_type,institution,imageInput) placeholder="Deadline*" [nbDatepicker]="formpicker">
+                        <nb-datepicker #formpicker></nb-datepicker>
+                    </div>
+                    <span>Select Images*: </span>
+                    <input nbInput #imageInput type="file" accept="image/*" multiple (change)="processFile(name,description,goal,post_type,institution,imageInput)">
+                    <br>
+                    <p *ngIf=imgerr style="color: red;"> Please upload atleast 4 images! </p>
+                    <p *ngIf=formerr style="color: red;"> Please fill the missing required fields! </p>
+                    <button type="submit" (click)="addOrg(name.value,description.value,xtz.value,selectedOption,institution.value,imageInput,deadline.value)" nbButton status="primary">Create</button>
+
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf=!Wallet>
+    <nb-card>
+        <nb-card-body>
+            <div class="center">
+                <h4>Please connect your wallet to raise a fund!</h4>
+            </div>
+        </nb-card-body>
+    </nb-card>
+</ng-container>
+<!--
+//Post Post Screen (Add issue):
+Pictures
+Cause Name
+Institution Associated With (Optional)
+Description
+Goal (Any currency input accepted)
+Type (Dropdown)
+Tags -->

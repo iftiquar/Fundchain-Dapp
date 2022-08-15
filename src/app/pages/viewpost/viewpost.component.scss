@@ -1,0 +1,143 @@
+.label{
+     padding: 10px;
+     font-size: larger;
+}
+
+.copy-text{
+     position: relative;
+     padding: 10px;
+     background: #fff;
+     border: 1px solid #ddd;
+     border-radius: 10px;
+     display: flex;
+}
+
+input.text{
+     width: 90%;
+}
+
+.copy-text input.text{
+     padding: 10px;
+     font-size: 18px;
+     color: #555;
+     border: none;
+     outline: none;
+}
+
+.copy-text button{
+     padding: 10px;
+     background: #5784f5;
+     color: #fff;
+     font-size: 18px;
+     border: none;
+     outline: none;
+     border-radius: 10px;
+     outline: none;
+     cursor: pointer;
+}
+
+.copy-text button:active{
+     background: #809ec8;
+}
+
+.copy-text button:before{
+     content: "Copied";
+     position: absolute;
+     top: -45px;
+     right: 0px;
+     background: #5c81dc;
+     padding: 8px 10px;
+     border-radius: 10px;
+     font-size: 15px;
+     display: none;
+}
+
+.copy-text button:after{
+     content: "";
+     position: absolute;
+     top: -25px;
+     right: 25px;
+     width: 10px;
+     height: 10px;
+     background: #5c81dc;
+     transform: rotate(45deg);
+     display: none;
+}
+
+.copy-text:active button:before
+.copy-text:active button:after{
+     display: block;
+}
+
+.qrcode{
+     size: 100px;
+     text-align: center;
+     margin-top: 30px;
+}
+
+.container{
+     margin-bottom: 30px;
+     margin-top: 40px;
+}
+
+.fluid{
+     margin: 5px;
+}
+
+
+.statistics{
+     text-align: left;
+}
+
+.stat{
+     margin-top: 15px;
+}
+
+.card-subheading{
+     font-size: large;
+}
+
+.orginfo{
+     font-size: 18px;
+     color: white;
+}
+
+.donate{
+     margin-top: 20px;
+}
+
+.donate-button{
+     margin-top: 20px;
+     text-align: right;
+}
+
+h1{
+     font-style: roboto;
+}
+
+.org-data{
+     font-size: 15px;
+}
+
+.org-title{
+     font-weight: bold;
+}
+
+button+button{
+     margin: 10px;
+}
+
+.vote{
+     margin: 15px;
+}
+.vote-class{
+     text-align: center;
+}
+
+nb-select+input{
+     margin: 20px;
+}
+
+.converter{
+     
+}

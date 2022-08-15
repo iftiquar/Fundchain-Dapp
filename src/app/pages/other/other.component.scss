@@ -1,0 +1,26 @@
+.card {
+    background-color: #222b45;
+    width: 29rem;
+    height: 29rem;
+    margin-top: 2rem;
+}
+
+.h1 {
+    font: size 100px;
+}
+
+.jumbotron {
+    background: #222b45;
+    padding: 1rem 2rem;
+}
+
+.card-text {
+    margin-top: 2rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.goal {
+    text-align: right;
+}

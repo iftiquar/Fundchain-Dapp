@@ -1,0 +1,14 @@
+<nb-card size = "small" class = "dialog">
+     <nb-card-body>
+          <div class = "dialog-body">
+                <p>Specify the condition until which the funds get locked.</p>
+               <input type = "number"#downvotes nbInput fullWidth fieldSize = "large" placeholder = "Enter number of Downvotes">
+               <small>NOTE that you can claim back only <strong>80%</strong> of your funds.</small>
+          </div>
+
+     </nb-card-body>
+     <nb-card-footer>
+       <button nbButton hero status="danger" (click)="close()">Close</button>
+       <button nbButton hero status="success" (click)="Okay(downvotes.value)">Donate</button>
+     </nb-card-footer>
+</nb-card>

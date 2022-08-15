@@ -1,0 +1,40 @@
+<nb-card size="large">
+
+     <nb-card-header>
+   
+       <button class="single-view-button"
+               nbButton
+               size="small"
+               [appearance]="isSingleView ? 'filled' : 'outline'"
+               (click)="isSingleView = true">
+         <i class="nb-square"></i>
+       </button>
+       <button class="grid-view-button"
+               nbButton
+               size="small"
+               [appearance]="isSingleView ? 'outline' : 'filled'"
+               (click)="isSingleView = false">
+         <nb-icon icon="grid" pack="eva"></nb-icon>
+       </button>
+     </nb-card-header>
+   
+     <div class="grid-container">
+   
+       <div class="single-view" *ngIf="isSingleView">
+         <div class="camera" [style.background-image]="'url(' + selectedCamera.source + ')'">
+           <span class="camera-name">{{ selectedCamera.title }}</span>
+         </div>
+       </div>
+   
+       <div class="grid-view" *ngIf="!isSingleView">
+         <div class="camera"
+              *ngFor="let camera of cameras"
+              [style.background-image]="'url(' + camera.source + ')'"
+              (click)="selectCamera(camera)">
+           <span class="camera-name">{{ camera.title }}</span>
+         </div>
+       </div>
+   
+     </div>
+</nb-card>
+   

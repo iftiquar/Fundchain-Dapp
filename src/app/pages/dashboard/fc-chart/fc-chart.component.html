@@ -1,0 +1,22 @@
+<nb-card size="large">
+     <nb-tabset fullWidth (changeTab)="changeTab($event)">
+       <nb-tab tabTitle="Funds Raised">
+         <div class="chart-container">
+           <ngx-fc-chart-summary [summary]="chartPanelSummary"></ngx-fc-chart-summary>
+           <!-- <ngx-chart-panel-header [type]="period"
+                                   (periodChange)="setPeriodAndGetChartData($event)">
+           </ngx-chart-panel-header> -->
+           <ngx-order-chart #ordersChart [ordersChartData]="ordersChartData"></ngx-order-chart>
+         </div>
+       </nb-tab>
+       <nb-tab tabTitle="Hall Of Fame" [lazyLoad]="true">
+         <div class="chart-container">
+           <ngx-fc-chart-summary [summary]="chartPanelSummary"></ngx-fc-chart-summary>
+           <!-- <ngx-chart-panel-header [type]="period"
+                                   (periodChange)="setPeriodAndGetChartData($event)">
+           </ngx-chart-panel-header> -->
+           <ngx-funds-chart #fundsChart [fundsChartData]="fundsChartData"></ngx-funds-chart>
+         </div>
+       </nb-tab>
+     </nb-tabset>
+   </nb-card>
